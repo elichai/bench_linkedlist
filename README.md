@@ -2,5 +2,5 @@
 
 
 ## Rust
-[rust/RESULTS.md]
+[Results](rust/RESULTS.md) <br/>
 Full report: [Criterion Report](https://htmlpreview.github.io/?https://github.com/elichai/bench_linkedlist/blob/master/rust/target/criterion/report/index.html)
