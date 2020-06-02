@@ -43,3 +43,18 @@ if inserting to the front isn't needed then `std::vec::Vec` is even faster
 
 
 Go's builtin slice is orders of magnitude faster than stdlib's `container/list`, except when inserting to the front, where the slice's implementation isn't optimized for that (and the stdlib doesn't provide a Deque library), this can be optimizer with a simple Deque implementation.
+
+## C++
+[Results](cpp/results) <br/>
+| Name              | Speed            |
+|-------------------|------------------|
+| InsertBackList    |<div align="right">**33,950** ns/op</div> |
+| InsertBackDeque   |<div align="right">**3,022** ns/op</div>  |
+| InsertFrontList   |<div align="right">**35,887** ns/op</div> |
+| InsertFrontDeque  |<div align="right">**3,291** ns/op</div>  |
+| SumList           |<div align="right">**4,948** ns/op</div>  |
+| SumDeque          |<div align="right">**812** ns/op</div>    |
+| InsertRemoveList  |<div align="right">**37,419** ns/op</div> |
+| InsertRemoveDeque |<div align="right">**6,907** ns/op</div>  |
+`std::deque` is orders of magnitude in all the operations I've tested for a moderate size deque(2048 uint8_t elements). <br/>
+If inserting to the front isn't needed then `std::vector` is even faster than `std::deque`.

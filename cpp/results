@@ -1,0 +1,20 @@
+2020-06-02 17:13:47
+Running ./bench
+Run on (16 X 5000 MHz CPU s)
+CPU Caches:
+  L1 Data 32 KiB (x8)
+  L1 Instruction 32 KiB (x8)
+  L2 Unified 256 KiB (x8)
+  L3 Unified 16384 KiB (x1)
+Load Average: 2.27, 2.26, 2.20
+---------------------------------------------------------------
+Benchmark                     Time             CPU   Iterations
+---------------------------------------------------------------
+BM_InsertBackList         33950 ns        33882 ns        21159
+BM_InsertBackDeque         3022 ns         3016 ns       229102
+BM_InsertFrontList        35887 ns        35810 ns        19777
+BM_InsertFrontDeque        3291 ns         3283 ns       216014
+BM_SumList                 4948 ns         4943 ns       121777
+BM_SumDeque                 812 ns          810 ns       848058
+BM_InsertRemoveList       37419 ns        37369 ns        18561
+BM_InsertRemoveDeque       6907 ns         6898 ns       102045
