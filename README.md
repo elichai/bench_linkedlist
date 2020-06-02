@@ -1,5 +1,9 @@
 # Benchmarks for linkedlist implementations in various languages
 
+The point of this repository is to show that it's almost never a good idea to use a linked list, in any language.
+
+Any PRs for new languages / more efficient implementations (only types provided by the language though) are welcome :)
+
 This currently contain the following benchmarks:
 1. Inserting elements to the back. (2048 times)
 2. Inserting elements to the front. (2048 times)
@@ -48,6 +52,7 @@ if inserting to the front isn't needed then `std::vec::Vec` is even faster.
 
 Go's builtin slice is orders of magnitude faster than stdlib's `container/list`, except when inserting to the front, where the slice's implementation isn't optimized for that (and the stdlib doesn't provide a Deque library),  <br/>
 this can be optimizer with a simple Deque implementation.
+Go's List doesn't allow splitting a list into 2 so I did not implement that benchmark.
 
 ## C++
 [Full Results](cpp/results) <br/>
