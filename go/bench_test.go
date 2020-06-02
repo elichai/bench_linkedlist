@@ -47,7 +47,7 @@ func BenchmarkInsertFrontSlice(b *testing.B) {
 	}
 }
 
-func BenchmarkSumtList(b *testing.B) {
+func BenchmarkSumList(b *testing.B) {
 	l := list.New()
 	for i := 0; i < ITERS; i++ {
 		l.PushBack(byte(1))

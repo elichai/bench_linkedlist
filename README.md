@@ -1,14 +1,45 @@
-# Benchmarks for linkedlist implementations in different languages
+# Benchmarks for linkedlist implementations in various languages
+
+This currently contain the following benchmarks:
+1. Inserting elements to the back.
+2. Inserting elements to the front.
+3. Summing up all the elements.
+4. Inserting elements to the back and then removing them.
+
+All the benchmarks were down with a `2048` number of iterations per operation (e.g. pushing 2048 elements, one by one to the list, or summing up a list with 2048 elements)
+The results are from the spec of my laptop: Linux, Intel i9-9980HK 2.4Ghz. 32GB RAM.
 
 
 ## Rust
-[Results](rust/RESULTS.md) <br/>
+[Full Results](rust/RESULTS.md) <br/>
 Full report: [Criterion Report](https://htmlpreview.github.io/?https://github.com/elichai/bench_linkedlist/blob/master/rust/target/criterion/report/index.html)
+
+| Name              | Speed            |
+|-------------------|------------------|
+| InsertBackList    |<div align="right">**30,144** ns/op</div>|
+| InsertBackVec     |<div align="right">**4,471** ns/op</div> |
+| InsertFrontList   |<div align="right">**51,673** ns/op</div>|
+| InsertFrontVec    |<div align="right">**5,702** ns/op</div> |
+| SumList           |<div align="right">**2,328** ns/op</div> |
+| SumVec            |<div align="right">**260** ns/op</div>  |
+| InsertRemoveList  |<div align="right">**55,190** ns/op</div>|
+| InsertRemoveVec   |<div align="right">**7,939** ns/op</div> |
 
 `std::collections::VecDeque` is orders of magnitude faster in all operations for a moderate size vec (2048 1byte elements).
 if inserting to the front isn't needed then `std::vec::Vec` is even faster
 
 ## Golang
-[Results](go/RESULTS.md) <br/>
+[Full Results](go/RESULTS.md) <br/>
+| Name              | Speed            |
+|-------------------|------------------|
+| InsertBackList    |<div align="right">**73,546** ns/op</div> |
+| InsertBackSlice   |<div align="right">**1,900** ns/op</div>  |
+| InsertFrontList   |<div align="right">**71,987** ns/op</div> |
+| InsertFrontSlice  |<div align="right">**394,781** ns/op</div>|
+| SumList           |<div align="right">**3,335** ns/op</div>  |
+| SumSlice          |<div align="right">**487** ns/op</div>   |
+| InsertRemoveList  |<div align="right">**85,013** ns/op</div> |
+| InsertRemoveSlice |<div align="right">**3,562** ns/op</div>  |
+
 
 Go's builtin slice is orders of magnitude faster than stdlib's `container/list`, except when inserting to the front, where the slice's implementation isn't optimized for that (and the stdlib doesn't provide a Deque library), this can be optimizer with a simple Deque implementation.
