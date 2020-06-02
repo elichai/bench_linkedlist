@@ -14,13 +14,13 @@ fn bench_insert_back(b: &mut Criterion) {
             black_box(list);
         })
     });
-    group.bench_function(BenchmarkId::new("Vec", ""), |b| {
+    group.bench_function(BenchmarkId::new("Deque", ""), |b| {
         b.iter(|| {
-            let mut vec = VecDeque::new();
+            let mut deque = VecDeque::new();
             for _ in 0..ITERS {
-                vec.push_back(1u8);
+                deque.push_back(1u8);
             }
-            black_box(vec);
+            black_box(deque);
         })
     });
 }
@@ -36,13 +36,13 @@ fn bench_insert_front(b: &mut Criterion) {
             black_box(list);
         })
     });
-    group.bench_function(BenchmarkId::new("Vec", ""), |b| {
+    group.bench_function(BenchmarkId::new("Deque", ""), |b| {
         b.iter(|| {
-            let mut vec = VecDeque::new();
+            let mut deque = VecDeque::new();
             for _ in 0..ITERS {
-                vec.push_front(1u8);
+                deque.push_front(1u8);
             }
-            black_box(vec);
+            black_box(deque);
         })
     });
 }
@@ -61,12 +61,12 @@ fn bench_sum(b: &mut Criterion) {
         })
     });
 
-    let mut vec = VecDeque::from(vec![1u8; ITERS]);
-    group.bench_function(BenchmarkId::new("Vec", ""), |b| {
+    let mut deque = VecDeque::from(vec![1u8; ITERS]);
+    group.bench_function(BenchmarkId::new("Deque", ""), |b| {
         b.iter(|| {
-            let sum: usize = vec.iter().map(|a| *a as usize).sum();
+            let sum: usize = deque.iter().map(|a| *a as usize).sum();
             black_box(sum);
-            black_box(&mut vec);
+            black_box(&mut deque);
         })
     });
 }
@@ -86,16 +86,16 @@ fn bench_insert_remove(b: &mut Criterion) {
         })
     });
 
-    group.bench_function(BenchmarkId::new("Vec", ""), |b| {
+    group.bench_function(BenchmarkId::new("Deque", ""), |b| {
         b.iter(|| {
-            let mut vec = VecDeque::new();
+            let mut deque = VecDeque::new();
             for _ in 0..ITERS {
-                vec.push_back(1u8);
+                deque.push_back(1u8);
             }
             for _ in 0..ITERS {
-                black_box(vec.pop_back());
+                black_box(deque.pop_back());
             }
-            black_box(vec);
+            black_box(deque);
         })
     });
 }
