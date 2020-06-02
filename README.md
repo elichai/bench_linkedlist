@@ -1,14 +1,16 @@
 # Benchmarks for linkedlist implementations in various languages
 
 This currently contain the following benchmarks:
-1. Inserting elements to the back.
-2. Inserting elements to the front.
-3. Summing up all the elements.
-4. Inserting elements to the back and then removing them.
+1. Inserting elements to the back. (2048 times)
+2. Inserting elements to the front. (2048 times)
+3. Summing up all the elements. (2048 times)
+4. Inserting elements to the back and then removing them. (2048 times)
+5. Spliting the list and the middle and re-appending it. (32 times)
 
-All the benchmarks were down with a `2048` number of iterations per operation (e.g. pushing 2048 elements, one by one to the list, or summing up a list with 2048 elements)
+All the benchmarks were down with a `2048` number of iterations per operation (e.g. pushing elements, one by one to the list, or summing up a list with 2048 elements)
 The results are from the spec of my laptop: Linux, Intel i9-9980HK 2.4Ghz. 32GB RAM.
 
+I've chosen 2048 elements because I believe it's a moderate size list. (it can be easily changed via the constant ITERS in all benchmarks)
 
 ## Rust
 [Full Results](rust/results) <br/>
@@ -25,8 +27,8 @@ Full report: [Criterion Report](https://htmlpreview.github.io/?https://github.co
 | InsertRemoveList  |<div align="right">**52,267** ns/op</div>|
 | InsertRemoveDeque |<div align="right">**7,055** ns/op</div> |
 
-`std::collections::VecDeque` is orders of magnitude faster in all operations for a moderate size vec (2048 1byte elements).<br/>
-if inserting to the front isn't needed then `std::vec::Vec` is even faster
+`std::collections::VecDeque` is orders of magnitude faster in all operations.<br/>
+if inserting to the front isn't needed then `std::vec::Vec` is even faster.
 
 ## Golang
 [Full Results](go/results) <br/>
@@ -58,5 +60,5 @@ this can be optimizer with a simple Deque implementation.
 | InsertRemoveList  |<div align="right">**37,419** ns/op</div> |
 | InsertRemoveDeque |<div align="right">**6,907** ns/op</div>  |
 
-`std::deque` is orders of magnitude in all the operations I've tested for a moderate size deque(2048 uint8_t elements). <br/>
+`std::deque` is orders of magnitude in all the operations I've tested. <br/>
 If inserting to the front isn't needed then `std::vector` is even faster than `std::deque`.
