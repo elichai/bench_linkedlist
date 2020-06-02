@@ -100,8 +100,41 @@ fn bench_insert_remove(b: &mut Criterion) {
     });
 }
 
+fn bench_split_append(b: &mut Criterion) {
+    let mut group = b.benchmark_group("Split & Append");
+
+    let mut list = LinkedList::new();
+    for _ in 0..ITERS {
+        list.push_back(1u8);
+    }
+    group.bench_function(BenchmarkId::new("List", ""), |b| {
+        b.iter(|| {
+            for _ in 0..(ITERS/64) {
+                let mut new_list = list.split_off(ITERS / 2);
+                list.append(&mut new_list);
+                black_box(&mut list);
+            }
+        })
+    });
+
+    let mut deque = VecDeque::new();
+    for _ in 0..ITERS {
+        deque.push_back(1u8);
+    }
+    group.bench_function(BenchmarkId::new("Deque", ""), |b| {
+        b.iter(|| {
+            for _ in 0..(ITERS/64) {
+                let mut new_deque = deque.split_off(ITERS / 2);
+                deque.append(&mut new_deque);
+                black_box(&mut deque);
+            }
+        })
+    });
+}
+
 criterion_group! {benches,
-    bench_insert_back, bench_insert_front, bench_sum, bench_insert_remove
+    bench_insert_back, bench_insert_front,
+    bench_sum, bench_insert_remove, bench_split_append,
 }
 
 criterion_main!(benches);

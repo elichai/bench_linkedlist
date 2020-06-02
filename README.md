@@ -18,14 +18,16 @@ Full report: [Criterion Report](https://htmlpreview.github.io/?https://github.co
 
 | Name              | Speed            |
 |-------------------|------------------|
-| InsertBackList    |<div align="right">**27,010** ns/op</div>|
-| InsertBackDeque   |<div align="right">**4,349** ns/op</div> |
-| InsertFrontList   |<div align="right">**50,515** ns/op</div>|
-| InsertFrontDeque  |<div align="right">**5,3643** ns/op</div>|
-| SumList           |<div align="right">**3,9141** ns/op</div>|
-| SumDeque          |<div align="right">**251** ns/op</div>   |
-| InsertRemoveList  |<div align="right">**52,267** ns/op</div>|
-| InsertRemoveDeque |<div align="right">**7,055** ns/op</div> |
+| InsertBackList    |<div align="right">**28,938** ns/op</div>|
+| InsertBackDeque   |<div align="right">**4,519** ns/op</div> |
+| InsertFrontList   |<div align="right">**51,762** ns/op</div>|
+| InsertFrontDeque  |<div align="right">**5,686** ns/op</div> |
+| SumList           |<div align="right">**2,946** ns/op</div> |
+| SumDeque          |<div align="right">**259** ns/op</div>   |
+| InsertRemoveList  |<div align="right">**54,783** ns/op</div>|
+| InsertRemoveDeque |<div align="right">**7,399** ns/op</div> |
+| SpliAndAppendList |<div align="right">**41,430** ns/op</div>|
+| SpliAndAppendDeque|<div align="right">**61,606** ns/op</div>|
 
 `std::collections::VecDeque` is orders of magnitude faster in all operations.<br/>
 if inserting to the front isn't needed then `std::vec::Vec` is even faster.

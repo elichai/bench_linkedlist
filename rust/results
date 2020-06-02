@@ -1,36 +1,42 @@
-Insert Back/List/       time:   [26.897 us 27.010 us 27.137 us]
-Found 2 outliers among 100 measurements (2.00%)
-  2 (2.00%) high mild
-Insert Back/Deque/      time:   [4.3437 us 4.3499 us 4.3565 us]
-Found 7 outliers among 100 measurements (7.00%)
-  1 (1.00%) low severe
-  2 (2.00%) low mild
-  3 (3.00%) high mild
-  1 (1.00%) high severe
-
-Insert Front/List/      time:   [50.348 us 50.515 us 50.761 us]
-Found 5 outliers among 100 measurements (5.00%)
-  2 (2.00%) high mild
-  3 (3.00%) high severe
-Insert Front/Deque/     time:   [5.3522 us 5.3643 us 5.3766 us]
-Found 1 outliers among 100 measurements (1.00%)
-  1 (1.00%) high severe
-
-Sum/List/               time:   [3.8928 us 3.9141 us 3.9359 us]
+Insert Back/List/       time:   [28.803 us 28.938 us 29.086 us]
 Found 4 outliers among 100 measurements (4.00%)
   3 (3.00%) high mild
   1 (1.00%) high severe
-Sum/Deque/              time:   [251.50 ns 251.88 ns 252.34 ns]
-Found 9 outliers among 100 measurements (9.00%)
-  7 (7.00%) high mild
-  2 (2.00%) high severe
+Insert Back/Deque/      time:   [4.5122 us 4.5199 us 4.5284 us]
+Found 6 outliers among 100 measurements (6.00%)
+  1 (1.00%) high mild
+  5 (5.00%) high severe
 
-Insert & Remove/List/   time:   [52.163 us 52.267 us 52.383 us]
+Insert Front/List/      time:   [51.632 us 51.762 us 51.898 us]
+Found 2 outliers among 100 measurements (2.00%)
+  2 (2.00%) high mild
+Insert Front/Deque/     time:   [5.6776 us 5.6865 us 5.6960 us]
+Found 3 outliers among 100 measurements (3.00%)
+  3 (3.00%) high mild
+
+Sum/List/               time:   [2.9161 us 2.9467 us 2.9788 us]
+Found 7 outliers among 100 measurements (7.00%)
+  5 (5.00%) high mild
+  2 (2.00%) high severe
+Sum/Deque/              time:   [258.43 ns 259.57 ns 261.26 ns]
+Found 9 outliers among 100 measurements (9.00%)
+  6 (6.00%) high mild
+  3 (3.00%) high severe
+
+Insert & Remove/List/   time:   [54.598 us 54.783 us 54.996 us]
 Found 5 outliers among 100 measurements (5.00%)
+  3 (3.00%) high mild
+  2 (2.00%) high severe
+Insert & Remove/Deque/  time:   [7.3800 us 7.3999 us 7.4227 us]
+Found 1 outliers among 100 measurements (1.00%)
+  1 (1.00%) high mild
+
+Split & Append/List/    time:   [41.308 us 41.430 us 41.557 us]
+Found 9 outliers among 100 measurements (9.00%)
+  6 (6.00%) high mild
+  3 (3.00%) high severe
+Split & Append/Deque/   time:   [61.266 us 61.606 us 62.150 us]
+Found 7 outliers among 100 measurements (7.00%)
   1 (1.00%) low mild
   4 (4.00%) high mild
-Insert & Remove/Deque/  time:   [7.0388 us 7.0550 us 7.0752 us]
-Found 5 outliers among 100 measurements (5.00%)
-  1 (1.00%) low mild
-  3 (3.00%) high mild
-  1 (1.00%) high severe
+  2 (2.00%) high severe
