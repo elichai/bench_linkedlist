@@ -21,11 +21,11 @@ Full report: [Criterion Report](https://htmlpreview.github.io/?https://github.co
 | InsertFrontList   |<div align="right">**51,673** ns/op</div>|
 | InsertFrontVec    |<div align="right">**5,702** ns/op</div> |
 | SumList           |<div align="right">**2,328** ns/op</div> |
-| SumVec            |<div align="right">**260** ns/op</div>  |
+| SumVec            |<div align="right">**260** ns/op</div>   |
 | InsertRemoveList  |<div align="right">**55,190** ns/op</div>|
 | InsertRemoveVec   |<div align="right">**7,939** ns/op</div> |
 
-`std::collections::VecDeque` is orders of magnitude faster in all operations for a moderate size vec (2048 1byte elements).
+`std::collections::VecDeque` is orders of magnitude faster in all operations for a moderate size vec (2048 1byte elements).<br/>
 if inserting to the front isn't needed then `std::vec::Vec` is even faster
 
 ## Golang
@@ -37,12 +37,13 @@ if inserting to the front isn't needed then `std::vec::Vec` is even faster
 | InsertFrontList   |<div align="right">**71,987** ns/op</div> |
 | InsertFrontSlice  |<div align="right">**394,781** ns/op</div>|
 | SumList           |<div align="right">**3,335** ns/op</div>  |
-| SumSlice          |<div align="right">**487** ns/op</div>   |
+| SumSlice          |<div align="right">**487** ns/op</div>    |
 | InsertRemoveList  |<div align="right">**85,013** ns/op</div> |
 | InsertRemoveSlice |<div align="right">**3,562** ns/op</div>  |
 
 
-Go's builtin slice is orders of magnitude faster than stdlib's `container/list`, except when inserting to the front, where the slice's implementation isn't optimized for that (and the stdlib doesn't provide a Deque library), this can be optimizer with a simple Deque implementation.
+Go's builtin slice is orders of magnitude faster than stdlib's `container/list`, except when inserting to the front, where the slice's implementation isn't optimized for that (and the stdlib doesn't provide a Deque library),  <br/>
+this can be optimizer with a simple Deque implementation.
 
 ## C++
 [Results](cpp/results) <br/>
@@ -56,5 +57,6 @@ Go's builtin slice is orders of magnitude faster than stdlib's `container/list`,
 | SumDeque          |<div align="right">**812** ns/op</div>    |
 | InsertRemoveList  |<div align="right">**37,419** ns/op</div> |
 | InsertRemoveDeque |<div align="right">**6,907** ns/op</div>  |
+
 `std::deque` is orders of magnitude in all the operations I've tested for a moderate size deque(2048 uint8_t elements). <br/>
 If inserting to the front isn't needed then `std::vector` is even faster than `std::deque`.
