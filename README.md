@@ -11,7 +11,7 @@ The results are from the spec of my laptop: Linux, Intel i9-9980HK 2.4Ghz. 32GB 
 
 
 ## Rust
-[Full Results](rust/RESULTS.md) <br/>
+[Full Results](rust/results) <br/>
 Full report: [Criterion Report](https://htmlpreview.github.io/?https://github.com/elichai/bench_linkedlist/blob/master/rust/target/criterion/report/index.html)
 
 | Name              | Speed            |
@@ -29,7 +29,7 @@ Full report: [Criterion Report](https://htmlpreview.github.io/?https://github.co
 if inserting to the front isn't needed then `std::vec::Vec` is even faster
 
 ## Golang
-[Full Results](go/RESULTS.md) <br/>
+[Full Results](go/results) <br/>
 | Name              | Speed            |
 |-------------------|------------------|
 | InsertBackList    |<div align="right">**73,546** ns/op</div> |
@@ -46,7 +46,7 @@ Go's builtin slice is orders of magnitude faster than stdlib's `container/list`,
 this can be optimizer with a simple Deque implementation.
 
 ## C++
-[Results](cpp/results) <br/>
+[Full Results](cpp/results) <br/>
 | Name              | Speed            |
 |-------------------|------------------|
 | InsertBackList    |<div align="right">**33,950** ns/op</div> |
