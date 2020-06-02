@@ -5,7 +5,6 @@ project(cpp-linkedlist-benchmarks)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_BUILD_TYPE Release)
 #set(BENCHMARK_ENABLE_LTO True)
-#set(GOOGLETEST_PATH googletest)
 
 add_executable(bench benchmark.cpp)
 

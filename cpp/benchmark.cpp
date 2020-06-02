@@ -2,7 +2,7 @@
 #include <cstddef>
 #include <cstdint>
 #include <deque>
-#include <iostream>
+#include <iterator>
 #include <list>
 #include <numeric>
 
@@ -103,6 +103,47 @@ static void BM_InsertRemoveDeque(benchmark::State &state) {
   }
 }
 
+static void BM_SplitAppendList(benchmark::State &state) {
+  std::list<uint8_t> list;
+  for (size_t i = 0; i < ITERS; i++) {
+    list.emplace_back(1);
+  }
+
+  for (auto _ : state) {
+    for (size_t i = 0; i < ITERS / 64; i++) {
+      std::list<uint8_t> new_list;
+      auto it = list.begin();
+      std::advance(it, ITERS / 2);
+      // Split the list in half.
+      new_list.splice(new_list.begin(), list, it, list.end());
+      // Merge the list back.
+      list.splice(list.end(), new_list);
+      benchmark::DoNotOptimize(list.begin());
+    }
+  }
+}
+
+static void BM_SplitAppendDeque(benchmark::State &state) {
+  std::deque<uint8_t> deque;
+  for (size_t i = 0; i < ITERS; i++) {
+    deque.emplace_back(i);
+  }
+
+  for (auto _ : state) {
+    for (size_t i = 0; i < ITERS / 64; i++) {
+      // Copy the last ITERS / 2 elements.
+      auto it = deque.begin();
+      std::advance(it, ITERS / 2);
+      std::deque<uint8_t> new_deque(it, deque.end());
+      // Delete last ITERS / 2 from deque
+      deque.erase(it, deque.end());
+      // Merge the deque bact.
+      deque.insert(deque.end(), new_deque.begin(), new_deque.end());
+      benchmark::DoNotOptimize(deque.begin());
+    }
+  }
+}
+
 // Register the function as a benchmark
 BENCHMARK(BM_InsertBackList);
 BENCHMARK(BM_InsertBackDeque);
@@ -112,5 +153,7 @@ BENCHMARK(BM_SumList);
 BENCHMARK(BM_SumDeque);
 BENCHMARK(BM_InsertRemoveList);
 BENCHMARK(BM_InsertRemoveDeque);
+BENCHMARK(BM_SplitAppendList);
+BENCHMARK(BM_SplitAppendDeque);
 // Run the benchmark
 BENCHMARK_MAIN();

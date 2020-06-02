@@ -53,14 +53,17 @@ this can be optimizer with a simple Deque implementation.
 [Full Results](cpp/results) <br/>
 | Name              | Speed            |
 |-------------------|------------------|
-| InsertBackList    |<div align="right">**33,950** ns/op</div> |
-| InsertBackDeque   |<div align="right">**3,022** ns/op</div>  |
-| InsertFrontList   |<div align="right">**35,887** ns/op</div> |
-| InsertFrontDeque  |<div align="right">**3,291** ns/op</div>  |
-| SumList           |<div align="right">**4,948** ns/op</div>  |
-| SumDeque          |<div align="right">**812** ns/op</div>    |
-| InsertRemoveList  |<div align="right">**37,419** ns/op</div> |
-| InsertRemoveDeque |<div align="right">**6,907** ns/op</div>  |
+| InsertBackList    |<div align="right">**31,304** ns/op</div> |
+| InsertBackDeque   |<div align="right">**2,830** ns/op</div>  |
+| InsertFrontList   |<div align="right">**32,644** ns/op</div> |
+| InsertFrontDeque  |<div align="right">**2,878** ns/op</div>  |
+| SumList           |<div align="right">**3,679** ns/op</div>  |
+| SumDeque          |<div align="right">**1,109** ns/op</div>    |
+| InsertRemoveList  |<div align="right">**36,793** ns/op</div> |
+| InsertRemoveDeque |<div align="right">**6,694** ns/op</div>  |
+| SpliAndAppendList |<div align="right">**130,769** ns/op</div>|
+| SpliAndAppendDeque|<div align="right">**4,794** ns/op</div>|
+
 
 `std::deque` is orders of magnitude in all the operations I've tested. <br/>
 If inserting to the front isn't needed then `std::vector` is even faster than `std::deque`.
